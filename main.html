@@ -30,40 +30,42 @@
             width: 400px;
             transition: 1s all;
             transform-origin: 5% 100%;
+            z-index: 2;
         }
         .gift #box{
             max-width: 80%;
             width: 320px;
             z-index: 2;
         }
-        .msg{
+        .items{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             position: absolute;
+            transition: 1s all;
             top: 50%;
+        }
+        .msg{
             width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
             transition: 1s all;
             font-size: 1vw;
-            z-index: -1;
             text-align: center;
         }
         .makhi{
             height: 25px;
-            position: absolute;
-            top: 50%;
-            width: auto;
+            width: 35px;
             transition: 1s all;
             z-index: 0;
         }
         .envelop{
-            position: absolute;
-            top: 100%;
+            position: relative;
             height: 0%;
             width: 0%;
             transition: 1s all;
             z-index: 0;
-            animation: envelop_up 1s ease-in-out;
         }
         .envelop .triangle{
             height: 50%;
@@ -79,7 +81,27 @@
         .envelop .rectangle{
             height: 100%;
             width: 100%;
-            background-color: rgba(255, 228, 196, 0.692);
+            background-color: rgb(241, 223, 201);
+            z-index: 2;
+        }
+        .note{
+            position: absolute;
+            bottom: 50%;
+            height: 50%;
+            width: 100%;
+            transition: 1s all;
+            z-index: -1;
+            background-color: aqua;
+        }
+        @keyframes c_note {
+            0%{}
+            10%{
+                position: fixed;
+                top: 5vh;
+                height: 90vh;
+                width: 90vw;
+            }
+            100%{}
         }
     </style>
 </head>
@@ -88,12 +110,15 @@
         <div class="gift">
             <img src="cap.jpg" alt="" id="cap">
             <img src="box.jpg" alt="" id="box" onclick="open_gift()">
-            <p class="msg"><span>Happy Birthday<br>Madhumita(Makhi)</span></p>
-            <img src="makhi.webp" alt="" class="makhi">
-            <div class="envelop" onclick="open_envelop()">
-                <div class="triangle" style="background-color: aliceblue;"></div>
-                <div class="triangle"></div>
-                <div class="rectangle"></div>
+            <div class="items">
+                <p class="msg"><span>Happy Birthday<br>Madhumita(Makhi)</span></p>
+                <img src="makhi.webp" alt="" class="makhi"><br>
+                <div class="envelop" onclick="open_envelop()">
+                    <div class="triangle" style="background-color: aqua;"></div>
+                    <div class="triangle"></div>
+                    <div class="rectangle"></div>
+                    <div class="note" onclick="see_note()"></div>
+                </div>
             </div>
         </div>
     </div>
@@ -102,19 +127,15 @@
             if(document.getElementById('cap').style.transform!="rotateZ(-120deg)"){
                 document.getElementById('cap').style.transform="rotateZ(-120deg)";
                 document.getElementById('cap').style.translate="-10%";
-                document.getElementsByClassName('msg')[0].style.transform="translateY(-30vh)";
-                document.getElementsByClassName('makhi')[0].style.transform="translateY(-18vh)";
-                document.getElementsByClassName('envelop')[0].style.transform="translateY(-310%)";
+                document.getElementsByClassName('items')[0].style.transform="translateY(-30vh)";
                 document.getElementsByClassName('envelop')[0].style.width="40%";
-                document.getElementsByClassName('envelop')[0].style.height="25%";
+                document.getElementsByClassName('envelop')[0].style.height="50px";
                 document.getElementsByClassName('msg')[0].style.fontSize="2rem";
             }
             else{
                 document.getElementById('cap').style.transform="rotateZ(0deg)";
                 document.getElementById('cap').style.translate="0%";
-                document.getElementsByClassName('msg')[0].style.transform="translateY(0vh)";
-                document.getElementsByClassName('makhi')[0].style.transform="translateY(0vh)";
-                document.getElementsByClassName('envelop')[0].style.transform="translateY(0vh)";
+                document.getElementsByClassName('items')[0].style.transform="translateY(0vh)";
                 document.getElementsByClassName('envelop')[0].style.width="0%";
                 document.getElementsByClassName('envelop')[0].style.height="0%";
                 document.getElementsByClassName('msg')[0].style.fontSize="1vw";
@@ -123,10 +144,27 @@
         function open_envelop(){
             if(document.getElementsByClassName('triangle')[1].style.transform!="rotateX(180deg)"){
                 document.getElementsByClassName('triangle')[1].style.transform="rotateX(180deg)"
+                setTimeout(open_note,1000)
             }
             else{
-                document.getElementsByClassName('triangle')[1].style.transform="rotateX(0deg)"
+                document.getElementsByClassName('note')[0].style.height="50%";
+                setTimeout(close_envelop,1010)
             }
+        }
+        function open_note(){
+            document.getElementsByClassName('note')[0].style.height="100%";
+            document.getElementsByClassName('triangle')[1].style.zIndex="-2"
+        }
+        function close_envelop(){
+            document.getElementsByClassName('triangle')[1].style.zIndex="0"
+            document.getElementsByClassName('triangle')[1].style.transform="rotateX(0deg)"
+        }
+        function see_note(){
+            document.getElementsByClassName('note')[0].style.animation="c_note 10s ease-in-out";
+            // document.getElementsByClassName('note')[0].style.position="fixed";
+            // document.getElementsByClassName('note')[0].style.top="5vh";
+            // document.getElementsByClassName('note')[0].style.height="90vh";
+            // document.getElementsByClassName('note')[0].style.width="90vw";
         }
     </script>
 </body>
