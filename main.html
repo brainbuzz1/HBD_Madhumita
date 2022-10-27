@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HBD_Madhumita</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        .content{
+            position: absolute;
+            bottom: 10vw;
+            width: 100%;
+            margin: 0px auto;
+        }
+        .gift{
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 50vw;
+            width: 400px;
+            margin: 50px auto;
+        }
+        .gift #cap{
+            max-width: 95%;
+            width: 400px;
+            transition: 1s all;
+            transform-origin: 5% 100%;
+        }
+        .gift #box{
+            max-width: 80%;
+            width: 320px;
+        }
+        .msg{
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: 1s all;
+            font-size: 2vw;
+            z-index: -1;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="gift" onclick="open_gift()">
+            <img src="cap.jpg" alt="" id="cap">
+            <img src="box.jpg" alt="" id="box">
+            <p class="msg"><span>Happy Birtday<br>Madhumita(Makhi)</span></p>
+        </div>
+    </div>
+    <script>
+        function open_gift(){
+            if(document.getElementById('cap').style.transform!="rotateZ(-120deg)"){
+                document.getElementById('cap').style.transform="rotateZ(-120deg)";
+                document.getElementById('cap').style.translate="-10%";
+                document.getElementsByClassName('msg')[0].style.transform="translateY(-30vh)";
+                document.getElementsByClassName('msg')[0].style.fontSize="4vw";
+            }
+            else{
+                document.getElementById('cap').style.transform="rotateZ(0deg)";
+                document.getElementById('cap').style.translate="0%";
+                document.getElementsByClassName('msg')[0].style.transform="translateY(0vh)";
+                document.getElementsByClassName('msg')[0].style.fontSize="3vw";
+            }
+        }
+    </script>
+</body>
+</html>
