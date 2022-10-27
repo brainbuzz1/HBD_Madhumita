@@ -34,6 +34,7 @@
         .gift #box{
             max-width: 80%;
             width: 320px;
+            z-index: 2;
         }
         .msg{
             position: absolute;
@@ -47,14 +48,54 @@
             z-index: -1;
             text-align: center;
         }
+        .makhi{
+            height: 25px;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            transition: 1s all;
+            z-index: 0;
+        }
+        .envelop{
+            position: absolute;
+            top: 100%;
+            height: 0%;
+            width: 0%;
+            transition: 1s all;
+            z-index: 0;
+            animation: envelop_up 1s ease-in-out;
+        }
+        .envelop .triangle{
+            height: 50%;
+            width: 100%;
+            background-color: bisque;
+            border: 1px solid black;
+            position: absolute;
+            top: 0px;
+            transition: 1s all;
+            transform-origin: 0% 0%;
+            clip-path: polygon(50% 100%, 0 0, 100% 0);
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+        }
+        .envelop .rectangle{
+            height: 100%;
+            width: 100%;
+            background-color: bisque;
+        }
     </style>
 </head>
 <body>
     <div class="content">
-        <div class="gift" onclick="open_gift()">
+        <div class="gift">
             <img src="cap.jpg" alt="" id="cap">
-            <img src="box.jpg" alt="" id="box">
-            <p class="msg"><span>Happy Birtday<br>Madhumita(Makhi)</span></p>
+            <img src="box.jpg" alt="" id="box" onclick="open_gift()">
+            <p class="msg"><span>Happy Birthday<br>Madhumita(Makhi)</span></p>
+            <img src="makhi.webp" alt="" class="makhi">
+            <div class="envelop" onclick="open_envelop()">
+                <div class="triangle" style="background-color: aliceblue;"></div>
+                <div class="triangle"></div>
+                <div class="rectangle"></div>
+            </div>
         </div>
     </div>
     <script>
@@ -63,13 +104,29 @@
                 document.getElementById('cap').style.transform="rotateZ(-120deg)";
                 document.getElementById('cap').style.translate="-10%";
                 document.getElementsByClassName('msg')[0].style.transform="translateY(-30vh)";
+                document.getElementsByClassName('makhi')[0].style.transform="translateY(-18vh)";
+                document.getElementsByClassName('envelop')[0].style.transform="translateY(-310%)";
+                document.getElementsByClassName('envelop')[0].style.width="40%";
+                document.getElementsByClassName('envelop')[0].style.height="25%";
                 document.getElementsByClassName('msg')[0].style.fontSize="2rem";
             }
             else{
                 document.getElementById('cap').style.transform="rotateZ(0deg)";
                 document.getElementById('cap').style.translate="0%";
                 document.getElementsByClassName('msg')[0].style.transform="translateY(0vh)";
+                document.getElementsByClassName('makhi')[0].style.transform="translateY(0vh)";
+                document.getElementsByClassName('envelop')[0].style.transform="translateY(0vh)";
+                document.getElementsByClassName('envelop')[0].style.width="0%";
+                document.getElementsByClassName('envelop')[0].style.height="0%";
                 document.getElementsByClassName('msg')[0].style.fontSize="1vw";
+            }
+        }
+        function open_envelop(){
+            if(document.getElementsByClassName('triangle')[1].style.transform!="rotateX(180deg)"){
+                document.getElementsByClassName('triangle')[1].style.transform="rotateX(180deg)"
+            }
+            else{
+                document.getElementsByClassName('triangle')[1].style.transform="rotateX(0deg)"
             }
         }
     </script>
