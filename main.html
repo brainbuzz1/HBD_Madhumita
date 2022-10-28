@@ -89,35 +89,51 @@
             bottom: 50%;
             height: 50%;
             width: 100%;
+            transform-style: preserve-3d;
             transition: 1s all;
+            transform-origin: 50% 50%;
             z-index: -1;
-            background-color: aqua;
+            display: none;
+            justify-content: center;
+            font-size: 26px;
         }
         @keyframes c_note {
             0%{}
             10%{
-                position: fixed;
-                top: 5vh;
+                transform: translateY(-20vh);
+            }
+            20%{
+                transform: rotateX(180deg);
+            }
+            30%{
+                transform: translateY(-10vh);
+                height: 50vh;
+                width: 50vw;
+            }
+            40%{
+                transform: translateX(0vh);
+            }
+            100%{
                 height: 90vh;
                 width: 90vw;
             }
-            100%{}
         }
     </style>
 </head>
 <body>
+    <button onclick="see_note()">open note</button>
     <div class="content">
         <div class="gift">
             <img src="cap.jpg" alt="" id="cap">
             <img src="box.jpg" alt="" id="box" onclick="open_gift()">
             <div class="items">
                 <p class="msg"><span>Happy Birthday<br>Madhumita(Makhi)</span></p>
-                <img src="makhi.webp" alt="" class="makhi"><br>
+                <br><br>
                 <div class="envelop" onclick="open_envelop()">
-                    <div class="triangle" style="background-color: aqua;"></div>
+                    <div class="triangle" style="background-color: rgba(0, 255, 255, 0);"></div>
                     <div class="triangle"></div>
                     <div class="rectangle"></div>
-                    <div class="note" onclick="see_note()"></div>
+                    <div class="note" onclick="see_note()"><img src="makhi.jpg" alt="" class="makhi"></div>
                 </div>
             </div>
         </div>
@@ -144,23 +160,24 @@
         function open_envelop(){
             if(document.getElementsByClassName('triangle')[1].style.transform!="rotateX(180deg)"){
                 document.getElementsByClassName('triangle')[1].style.transform="rotateX(180deg)"
+                document.getElementsByClassName('note')[0].style.display="flex";
                 setTimeout(open_note,1000)
             }
             else{
-                document.getElementsByClassName('note')[0].style.height="50%";
+                document.getElementsByClassName('note')[0].style.bottom="50%";
                 setTimeout(close_envelop,1010)
             }
         }
         function open_note(){
-            document.getElementsByClassName('note')[0].style.height="100%";
+            document.getElementsByClassName('note')[0].style.bottom="115%"
             document.getElementsByClassName('triangle')[1].style.zIndex="-2"
         }
         function close_envelop(){
-            document.getElementsByClassName('triangle')[1].style.zIndex="0"
+            document.getElementsByClassName('triangle')[1].style.zIndex="0";
             document.getElementsByClassName('triangle')[1].style.transform="rotateX(0deg)"
         }
         function see_note(){
-            document.getElementsByClassName('note')[0].style.animation="c_note 10s ease-in-out";
+            document.getElementsByClassName('note')[0].style.animation="c_note 10s ease-in-out forwards";
             // document.getElementsByClassName('note')[0].style.position="fixed";
             // document.getElementsByClassName('note')[0].style.top="5vh";
             // document.getElementsByClassName('note')[0].style.height="90vh";
