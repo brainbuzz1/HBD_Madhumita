@@ -121,7 +121,7 @@
     </style>
 </head>
 <body>
-    <button onclick="see_note()">open note</button>
+    <center><h1 style="display: none;" class="majak">Khola lifafa nikli Makkhi🤣🤣</h1></center>
     <div class="content">
         <div class="gift">
             <img src="cap.jpg" alt="" id="cap">
@@ -165,10 +165,12 @@
             }
             else{
                 document.getElementsByClassName('note')[0].style.bottom="50%";
+                document.getElementsByClassName('majak')[0].style.display="none";
                 setTimeout(close_envelop,1010)
             }
         }
         function open_note(){
+            document.getElementsByClassName('majak')[0].style.display="block";
             document.getElementsByClassName('note')[0].style.bottom="115%"
             document.getElementsByClassName('triangle')[1].style.zIndex="-2"
         }
