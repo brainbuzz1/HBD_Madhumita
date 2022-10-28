@@ -98,27 +98,6 @@
             justify-content: center;
             font-size: 26px;
         }
-        @keyframes c_note {
-            0%{}
-            10%{
-                transform: translateY(-20vh);
-            }
-            20%{
-                transform: rotateX(180deg);
-            }
-            30%{
-                transform: translateY(-10vh);
-                height: 50vh;
-                width: 50vw;
-            }
-            40%{
-                transform: translateX(0vh);
-            }
-            100%{
-                height: 90vh;
-                width: 90vw;
-            }
-        }
     </style>
 </head>
 <body>
@@ -177,14 +156,8 @@
         }
         function close_envelop(){
             document.getElementsByClassName('triangle')[1].style.zIndex="0";
+            document.getElementsByClassName('note')[0].style.display="none";
             document.getElementsByClassName('triangle')[1].style.transform="rotateX(0deg)"
-        }
-        function see_note(){
-            document.getElementsByClassName('note')[0].style.animation="c_note 10s ease-in-out forwards";
-            // document.getElementsByClassName('note')[0].style.position="fixed";
-            // document.getElementsByClassName('note')[0].style.top="5vh";
-            // document.getElementsByClassName('note')[0].style.height="90vh";
-            // document.getElementsByClassName('note')[0].style.width="90vw";
         }
     </script>
 </body>
