@@ -27,16 +27,17 @@
             margin: 50px auto;
         }
         .gift #cap{
-            max-width: 95%;
+            max-width: 98%;
             width: 400px;
-            transition: 1s all;
-            transform-origin: 5% 100%;
+            transition: 0.1s all;
+            transform-origin: 50% 50%;
             z-index: 2;
         }
         .gift #box{
             max-width: 80%;
             width: 320px;
             z-index: 2;
+            transform: translateY(-5%);
         }
         .items{
             display: flex;
@@ -119,18 +120,29 @@
         </div>
     </div>
     <script>
+        setInterval(vibrate, 100);
+        function vibrate(){
+            if(document.getElementById('cap').style.transform!="translateY(-100vh)"){
+                if(document.getElementById('cap').style.transform=="rotate(2deg)"){
+                    document.getElementById('cap').style.transform="rotate(-2deg)"
+                }
+                else{
+                    document.getElementById('cap').style.transform="rotate(2deg)";
+                }
+            }
+        }
         function open_gift(){
-            if(document.getElementById('cap').style.transform!="rotateZ(-120deg)"){
-                document.getElementById('cap').style.transform="rotateZ(-120deg)";
-                document.getElementById('cap').style.translate="-10%";
+            if(document.getElementById('cap').style.transform!="translateY(-100vh)"){
+                document.getElementById('cap').style.transition="1s all";
+                document.getElementById('cap').style.transform="translateY(-100vh)";
                 document.getElementsByClassName('items')[0].style.transform="translateY(-30vh)";
                 document.getElementsByClassName('envelop')[0].style.width="40%";
                 document.getElementsByClassName('envelop')[0].style.height="50px";
                 document.getElementsByClassName('msg')[0].style.fontSize="2rem";
             }
             else{
-                document.getElementById('cap').style.transform="rotateZ(0deg)";
-                document.getElementById('cap').style.translate="0%";
+                document.getElementById('cap').style.transition="0.1s all";
+                document.getElementById('cap').style.transform="translateY(0vh)";
                 document.getElementsByClassName('items')[0].style.transform="translateY(0vh)";
                 document.getElementsByClassName('envelop')[0].style.width="0%";
                 document.getElementsByClassName('envelop')[0].style.height="0%";
