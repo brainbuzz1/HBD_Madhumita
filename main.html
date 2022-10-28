@@ -16,6 +16,7 @@
             bottom: 10vw;
             width: 100%;
             margin: 0px auto;
+            color: red;
         }
         .gift{
             position: relative;
@@ -102,13 +103,13 @@
     </style>
 </head>
 <body>
-    <center><h1 style="display: none;" class="majak">Khola lifafa nikli Makkhi🤣🤣</h1></center>
+    <center class="majak" style="display: none;" ><h1>Khola lifafa nikli Makkhi🤣🤣</h1><button href="mem.html">Memories</button></center>
     <div class="content">
         <div class="gift">
             <img src="cap.jpg" alt="" id="cap">
             <img src="box.jpg" alt="" id="box" onclick="open_gift()">
             <div class="items">
-                <p class="msg"><span>Happy Birthday<br>Madhumita(Makhi)</span></p>
+                <p class="msg"><span>_______________<br>Happy Birthday<br>Madhumita🥳🥳<br>---------------------</span></p>
                 <br><br>
                 <div class="envelop" onclick="open_envelop()">
                     <div class="triangle" style="background-color: rgba(0, 255, 255, 0);"></div>
@@ -135,7 +136,7 @@
             if(document.getElementById('cap').style.transform!="translateY(-100vh)"){
                 document.getElementById('cap').style.transition="1s all";
                 document.getElementById('cap').style.transform="translateY(-100vh)";
-                document.getElementsByClassName('items')[0].style.transform="translateY(-30vh)";
+                document.getElementsByClassName('items')[0].style.transform="translateY(-40vh)";
                 document.getElementsByClassName('envelop')[0].style.width="40%";
                 document.getElementsByClassName('envelop')[0].style.height="50px";
                 document.getElementsByClassName('msg')[0].style.fontSize="2rem";
