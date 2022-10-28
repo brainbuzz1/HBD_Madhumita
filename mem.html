@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memories</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        .card{
+            padding: 10px;
+            margin-top: 20px;
+            border-bottom: 1px solid black;
+        }
+        .card:nth-child(odd){
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .card:nth-child(even){
+            display: flex;
+            flex-direction: row-reverse;
+            align-items: center;
+            justify-content: center;
+        }
+        .card img{
+            width: 35%;
+            height: auto;
+        }
+        .write{
+            width: 55%;
+            font-size: 2.5vw;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <img src="makhi.jpg" alt="">
+        <div class="write">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt ab dignissimos reiciendis eveniet harum eligendi temporibus hic nobis optio officiis porro et iure expedita at, consequuntur in tempore itaque laborum?</div>
+    </div>
+    <div class="card">
+        <img src="makhi.jpg" alt="">
+        <div class="write">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt ab dignissimos reiciendis eveniet harum eligendi temporibus hic nobis optio officiis porro et iure expedita at, consequuntur in tempore itaque laborum?</div>
+    </div>
+    <div class="card">
+        <img src="makhi.jpg" alt="">
+        <div class="write">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt ab dignissimos reiciendis eveniet harum eligendi temporibus hic nobis optio officiis porro et iure expedita at, consequuntur in tempore itaque laborum?</div>
+    </div>
+</body>
+</html>
