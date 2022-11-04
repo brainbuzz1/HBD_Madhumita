@@ -116,9 +116,11 @@
         .balloon{
             position: absolute;
             top: 150vh;
-            transition: 1s all;
+            transition: 2s all;
             margin: 5px 0px;
             translate: -107px;
+            z-index: 10;
+            max-width: 95vw;
         }
     </style>
 </head>
@@ -161,7 +163,7 @@
                 document.getElementsByClassName('envelop')[0].style.width="40%";
                 document.getElementsByClassName('envelop')[0].style.height="50px";
                 document.getElementsByClassName('msg')[0].style.fontSize="2rem";
-                document.getElementsByClassName('balloon')[0].style.transform="translateY(-170vh)";
+                document.getElementsByClassName('balloon')[0].style.transform="translateY(-200vh)";
             }
             else{
                 document.getElementById('cap').style.transition="0.1s all";
