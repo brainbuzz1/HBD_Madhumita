@@ -14,6 +14,12 @@
         a{
             text-decoration: none;
         }
+        body{
+            /* background-image: url("bg.jpg"); */
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 100vh;
+        }
         .content{
             position: absolute;
             bottom: 10vh;
@@ -149,6 +155,7 @@
                 document.getElementsByClassName('envelop')[0].style.width="40%";
                 document.getElementsByClassName('envelop')[0].style.height="50px";
                 document.getElementsByClassName('msg')[0].style.fontSize="2rem";
+                document.body.style.backgroundImage='url("bg.jpg")'
             }
             else{
                 document.getElementById('cap').style.transition="0.1s all";
@@ -157,6 +164,7 @@
                 document.getElementsByClassName('envelop')[0].style.width="0%";
                 document.getElementsByClassName('envelop')[0].style.height="0%";
                 document.getElementsByClassName('msg')[0].style.fontSize="1vw";
+                document.body.style.backgroundImage=''
             }
         }
         function open_envelop(){
