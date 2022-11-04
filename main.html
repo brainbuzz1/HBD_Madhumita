@@ -15,10 +15,8 @@
             text-decoration: none;
         }
         body{
-            /* background-image: url("bg.jpg"); */
-            background-size: cover;
-            background-repeat: no-repeat;
-            height: 100vh;
+            background-color: aqua;
+            overflow-y: hidden;
         }
         .content{
             position: absolute;
@@ -115,6 +113,11 @@
             height: 40px;
             border-radius: 5px;
         }
+        .balloon{
+            position: absolute;
+            top: 100vh;
+            transition: 1s all;
+        }
     </style>
 </head>
 <body>
@@ -135,6 +138,7 @@
             </div>
         </div>
     </div>
+    <center><img src="balloon.jpg" alt="" class="balloon"></center>
     <script>
         setInterval(vibrate, 100);
         function vibrate(){
@@ -155,7 +159,7 @@
                 document.getElementsByClassName('envelop')[0].style.width="40%";
                 document.getElementsByClassName('envelop')[0].style.height="50px";
                 document.getElementsByClassName('msg')[0].style.fontSize="2rem";
-                document.body.style.backgroundImage='url("bg.jpg")'
+                document.getElementsByClassName('balloon')[0].style.transform="translateY(-150vh)";
             }
             else{
                 document.getElementById('cap').style.transition="0.1s all";
@@ -164,7 +168,7 @@
                 document.getElementsByClassName('envelop')[0].style.width="0%";
                 document.getElementsByClassName('envelop')[0].style.height="0%";
                 document.getElementsByClassName('msg')[0].style.fontSize="1vw";
-                document.body.style.backgroundImage=''
+                document.getElementsByClassName('balloon')[0].style.transform="";
             }
         }
         function open_envelop(){
